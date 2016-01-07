@@ -1,5 +1,9 @@
-rails-nginx-passenger-ubuntu
+nginx-passenger-ubuntu
 ============================
+
+This is only a fork I made to be sure it doesn't get modified, all the credits to @jnstq
+
+---
 
 My notes on setting up a simple production server with ubuntu, nginx, passenger and mysql for rails.
 
@@ -140,8 +144,8 @@ Nginx init script
 More information on http://wiki.nginx.org/Nginx-init-ubuntu
 
     cd
-    git clone git://github.com/jnstq/rails-nginx-passenger-ubuntu.git
-    sudo mv rails-nginx-passenger-ubuntu/nginx/nginx /etc/init.d/nginx
+    git clone git://github.com/makevoid/nginx-passenger-ubuntu.git
+    sudo mv nginx-passenger-ubuntu/nginx/nginx /etc/init.d/nginx
     sudo chown root:root /etc/init.d/nginx
     
 Verify that you can start and stop nginx with init script
@@ -163,74 +167,4 @@ Verify that you can start and stop nginx with init script
     sudo /usr/sbin/update-rc.d -f nginx defaults
     
 If you want, reboot and see so the webserver is starting as it should.
-
-Installning ImageMagick and RMagick
------------------------------------
-
-If you want to install the latest version of ImageMagick. I used MiniMagick that shell-out to the mogrify command, worked really well for me.
-
-    # If you already installed imagemagick from apt-get
-    sudo apt-get remove imagemagick
-
-    sudo apt-get install libperl-dev gcc libjpeg62-dev libbz2-dev libtiff4-dev libwmf-dev libz-dev libpng12-dev libx11-dev libxt-dev libxext-dev libxml2-dev libfreetype6-dev liblcms1-dev libexif-dev perl libjasper-dev libltdl3-dev graphviz gs-gpl pkg-config
-
-Use wget to grab the source from ImageMagick.org.
-
-Once the source is downloaded, uncompress it:
-
-
-    tar xvfz ImageMagick.tar.gz
-
-
-Now configure and make:
-
-    cd ImageMagick-6.5.0-0
-    ./configure
-    make
-    sudo make install
-
-To avoid an error such as:
-
-convert: error while loading shared libraries: libMagickCore.so.2: cannot open shared object file: No such file or directory
-
-    sudo ldconfig
-
-Install RMagick
- 
-    sudo /opt/ruby/bin/ruby /opt/ruby/bin/gem install rmagick
-
-Test a rails applicaton with nginx
-----------------------------------
-
-    rails -d mysql testapp
-    cd testapp
-    
-Enter your mysql password
-    
-    vim database.yml
-    rake db:create:all
-    ruby script/generate scaffold post title:string body:text
-    rake db:migrate RAILS_ENV=production
-    
-Check so the rails app start as normal
-    
-    ruby script/server
-
-    sudo vim /opt/nginx/conf/nginx.conf
-    
-Add a new virutal host
-
-    server {
-        listen 80;
-        # server_name www.mycook.com;
-        root /home/deploy/testapp/public;
-        passenger_enabled on;
-    }
-    
-Restart nginx
-
-    sudo /etc/init.d/nginx restart
-    
-Check you ipaddress and see if you can acess the rails application
-        
 
