@@ -26,7 +26,6 @@ For more info visit:
 
 ----
 
-Parts from the old readme:
 
 enjoy!
 
@@ -62,6 +61,9 @@ enjoy!
 -
 
 ---
+
+From the old readme:
+
 
 Installing git
 ----------------
