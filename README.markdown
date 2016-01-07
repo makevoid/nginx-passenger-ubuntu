@@ -1,7 +1,7 @@
 nginx-passenger-ubuntu
 ============================
 
-This is only a fork I made to be sure it doesn't get modified, all the credits to @jnstq
+Forked from @jnstq, added also the `systemd` and the `upstart` scripts, choose your favourite
 
 ---
 
@@ -18,7 +18,7 @@ Nginx
     passenger-install-nginx-module --auto --auto-download
 
      
-Nginx init script
+Nginx init script (old /etc/init.d, for the new one see the systemd one)
 -------------------
 
 More information on http://wiki.nginx.org/Nginx-init-ubuntu
