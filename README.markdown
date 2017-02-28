@@ -3,22 +3,30 @@ nginx-passenger-ubuntu
 
 nginx from package or installed via passenger now automatically sets up a way to restart it via `systemctl/service`
 
-this repo is just for storing the nginx.conf against latest passenger
+this repo is just for storing the nginx.conf configured against latest passenger
 
 
----
+-
 
----
+-
 
----
+-
 
----
+-
 
----
+-
 
----
+-
 
+-
 
+-
+
+-
+
+-
+
+-
 
 old readme:
 
