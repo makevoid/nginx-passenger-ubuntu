@@ -1,35 +1,6 @@
 nginx-passenger-ubuntu
 ============================
 
-nginx from package or installed via passenger now automatically sets up a way to restart it via `systemctl/service`
-
-this repo is just for storing the nginx.conf configured against latest passenger
-
-
--
-
--
-
--
-
--
-
--
-
--
-
--
-
--
-
--
-
--
-
--
-
-old readme:
-
 
 Forked from @jnstq, added also the `systemd` and the `upstart` scripts, choose your favourite
 
